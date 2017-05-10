@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/java-programmer.iml" filepath="$PROJECT_DIR$/.idea/modules/java-programmer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/java-programmer_main.iml" filepath="$PROJECT_DIR$/.idea/modules/java-programmer_main.iml" group="java-programmer" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/java-programmer_test.iml" filepath="$PROJECT_DIR$/.idea/modules/java-programmer_test.iml" group="java-programmer" />
+    </modules>
+  </component>
+</project>
