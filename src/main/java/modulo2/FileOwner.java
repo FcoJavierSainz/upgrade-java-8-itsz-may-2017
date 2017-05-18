@@ -13,7 +13,7 @@ import java.nio.file.attribute.UserPrincipal;
 public class FileOwner {
     public static void main(String[] args) throws IOException {
         UserPrincipal owner = FileSystems.getDefault().getUserPrincipalLookupService()
-                .lookupPrincipalByName("ValidUser");
+                .lookupPrincipalByName("JavierSainz");
         System.out.println(owner);
         try {
             // Read owner of file
@@ -22,13 +22,14 @@ public class FileOwner {
 
             // Change owner of file
             owner = path.getFileSystem()
-                    .getUserPrincipalLookupService().lookupPrincipalByName("InvalidUser");
+                    .getUserPrincipalLookupService().lookupPrincipalByName("root");
             Files.setOwner(path, owner);
 
             // Output the updated owner information
             System.out.println(Files.getOwner(path).getName());
         } catch (IOException e) {
             // Handle file I/O exception...
+            e.printStackTrace();
         }
     }
 }

@@ -26,7 +26,7 @@ public class ReadFile {
 
             //Files.readAllLines(path).filter(s -> s.length()>2).forEach(System.out::println);
 
-            //Files.lines(path).filter(s -> s.length()>2).forEach(System.out::println);
+            Files.lines(path).filter(s -> s.length()>2).forEach(System.out::println);
         } catch (IOException e) {
             // Handle file I/O exception...
         }

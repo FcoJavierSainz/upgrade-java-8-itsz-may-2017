@@ -8,8 +8,8 @@ import java.nio.file.Paths;
  */
 public class Relativize {
     public static void main(String[] args) {
-        Path file1 = Paths.get("file1");
-        Path file2 = Paths.get("/Users/<user>/workspace/java-programmer/file2");
+        Path file1 = Paths.get("/Users/JavierSainz/IdeaProjects/java-programmer");
+        Path file2 = Paths.get("/Users/JavierSainz/Documents/before.jpg");
         file2 = file1.relativize(file2);
         System.out.println(file2);
         System.out.println(file2.normalize());

@@ -8,16 +8,14 @@ import java.nio.file.Paths;
 /**
  * Created by JavierSainz on 5/13/17.
  */
-public class ListFiles {
+public class MovePaths {
     public static void main(String[] args) {
+
+        Path file1 = Paths.get("file1");
+        Path file2 = Paths.get("file2");
         try {
-            Path path = Paths.get(".");
-            Files.list(path)
-                    .filter(p -> !Files.isDirectory(p))
-                    .map(p -> p.toAbsolutePath().normalize())
-                    .forEach(System.out::println);
+            Files.move(file1, file2);
         } catch (IOException e) {
-            // Handle file I/O exception...
             e.printStackTrace();
         }
     }

@@ -10,5 +10,7 @@ import java.nio.file.Paths;
 public class FileVisitorSample {
     public static void main(String[] args) throws IOException {
         Files.walkFileTree(Paths.get("."), new FindAndCopyFile());
+        Files.walkFileTree(Paths.get("web"), new DeletePath());
+
     }
 }

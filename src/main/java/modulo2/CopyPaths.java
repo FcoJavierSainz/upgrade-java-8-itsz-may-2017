@@ -4,20 +4,18 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 /**
  * Created by JavierSainz on 5/13/17.
  */
-public class ListFiles {
+public class CopyPaths {
     public static void main(String[] args) {
+        Path file1 =  Paths.get("file1");
+        Path file2 =  Paths.get("file2");
         try {
-            Path path = Paths.get(".");
-            Files.list(path)
-                    .filter(p -> !Files.isDirectory(p))
-                    .map(p -> p.toAbsolutePath().normalize())
-                    .forEach(System.out::println);
+            Files.copy(file1, file2, StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.COPY_ATTRIBUTES);
         } catch (IOException e) {
-            // Handle file I/O exception...
             e.printStackTrace();
         }
     }

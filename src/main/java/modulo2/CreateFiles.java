@@ -10,13 +10,19 @@ import java.nio.file.Paths;
  */
 public class CreateFiles {
     public static void main(String[] args) {
-        Path fileToCreate = Paths.get("index.html");
         Path folder = Paths.get("web");
         Path folders = Paths.get("web/src/css");
+        Path fileToCreate = Paths.get("web/src/index.html");
         try {
-            Files.createFile(fileToCreate);
-            Files.createDirectory(folder);
-            Files.createDirectories(folders);
+            if (Files.notExists(folder)) {
+                Files.createDirectory(folder);
+            }
+            if (Files.notExists(folders)) {
+                Files.createDirectories(folders);
+            }
+            if (Files.notExists(fileToCreate)) {
+                Files.createFile(fileToCreate);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
