@@ -10,8 +10,8 @@ public class Compile {
         ExecutorService service = null;
         try {
             service = Executors.newSingleThreadExecutor();
-            //service.submit(() -> {Thread.sleep(1000); return null;});
-            //service.submit(() -> {Thread.sleep(1000);});
+            service.submit(() -> {Thread.sleep(1000); return null;});
+            service.submit(() -> {});
         } finally {
             if (service != null) service.shutdown();
         }

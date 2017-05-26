@@ -1,5 +1,6 @@
 package modulo4;
 
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
@@ -10,7 +11,7 @@ public class AtomicReferenceTest {
         String initialReference = "initial value referenced";
 
         AtomicReference<String> atomicStringReference =
-                new AtomicReference<String>(initialReference);
+                new AtomicReference<>(initialReference);
 
         String newReference = "new value referenced";
         boolean exchanged = atomicStringReference.compareAndSet(initialReference, newReference);
@@ -18,5 +19,7 @@ public class AtomicReferenceTest {
 
         exchanged = atomicStringReference.compareAndSet(initialReference, newReference);
         System.out.println("exchanged: " + exchanged);
+        AtomicInteger ai = new AtomicInteger(5);
+        ai.decrementAndGet();
     }
 }

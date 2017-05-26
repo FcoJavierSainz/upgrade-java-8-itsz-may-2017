@@ -15,6 +15,7 @@ public class ScheduledTasks {
         Future<?> result1 = service.schedule(task1, 3, TimeUnit.SECONDS);
         Future<?> result2 = service.schedule(task2, 1, TimeUnit.SECONDS);
         service.scheduleAtFixedRate(task1,5,1,TimeUnit.SECONDS);
+        System.out.println(result2.get());
 
     }
 }

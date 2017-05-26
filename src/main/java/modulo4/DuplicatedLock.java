@@ -9,12 +9,13 @@ import java.util.concurrent.locks.ReentrantLock;
 public class DuplicatedLock {
     public static void main(String[] args) {
         int count = 0;
-        Lock lock = new ReentrantLock();
+        Lock lock = new ReentrantLock(true);
         try {
             lock.lock();
             lock.lock();
             ++count;
         } finally {
+            lock.unlock();
             lock.unlock();
         }
 

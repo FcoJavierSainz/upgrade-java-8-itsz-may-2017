@@ -32,7 +32,7 @@ public class Hotel implements Executor {
     private void processEarliestOrder() {
         synchronized (custQueue) {
             Runnable task = custQueue.poll();
-            task.run();
+            new Thread(task).start();
         }
     }
 

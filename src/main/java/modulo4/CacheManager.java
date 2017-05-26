@@ -1,23 +1,23 @@
 package modulo4;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by JavierSainz on 5/18/17.
  */
 public class CacheManager {
-    private Map<String, Object> cache = new HashMap<String, Object>();
+    private Map<String, Object> cache = new ConcurrentHashMap<>();
 
-    public synchronized void put(String key, String value) {
+    public void put(String key, String value) {
         cache.put(key, value);
     }
 
-    public synchronized Object get(String key) {
+    public Object get(String key) {
         return cache.get(key);
     }
 
-    public synchronized void dumpRemoveAll() {
+    public void dumpRemoveAll() {
         for (String key :
                 cache.keySet()) {
             cache.remove(key);
@@ -30,5 +30,6 @@ public class CacheManager {
         cacheManager.put("key2", "value2");
         cacheManager.put("key3", "value3");
         cacheManager.dumpRemoveAll();
+        System.out.println(cacheManager.cache);
     }
 }

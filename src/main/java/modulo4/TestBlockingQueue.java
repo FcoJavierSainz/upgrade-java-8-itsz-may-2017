@@ -17,6 +17,9 @@ public class TestBlockingQueue {
                 queue.put("2");
                 Thread.sleep(1000);
                 queue.put("3");
+                System.out.println(queue.offer("3"));
+                System.out.println(queue.offer("3"));
+                System.out.println(queue.offer("3"));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -28,6 +31,12 @@ public class TestBlockingQueue {
                 System.out.println(queue.poll(100, TimeUnit.MILLISECONDS));
                 System.out.println(queue.take());
                 System.out.println(queue.take());
+                System.out.println(queue.poll());
+                System.out.println(queue.poll());
+                System.out.println(queue.poll());
+                System.out.println(queue.poll());
+                System.out.println(queue.poll());
+                System.out.println(queue.poll());
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

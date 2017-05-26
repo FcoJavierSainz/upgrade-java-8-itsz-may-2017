@@ -19,8 +19,8 @@ public class TestDeque {
 
             System.out.println(blockingDeque.poll());
             System.out.println(blockingDeque.poll(950, TimeUnit.MILLISECONDS));
-            System.out.println(blockingDeque.pollFirst(200, TimeUnit.NANOSECONDS));
-            System.out.println(blockingDeque.pollLast(1, TimeUnit.SECONDS));
+            System.out.println(blockingDeque.pollFirst(200, TimeUnit.MICROSECONDS));
+            System.out.println(blockingDeque.pollLast(5, TimeUnit.SECONDS));
         } catch (InterruptedException e) {
             // Handle interruption
         }

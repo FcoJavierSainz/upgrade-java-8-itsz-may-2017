@@ -6,21 +6,17 @@ package modulo4;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class SheepManager {
 
-    private int sheepCount = 0;
+    private AtomicInteger sheepCount = new AtomicInteger(0);
     private Lock lock = new ReentrantLock();
 
     private void incrementAndReport() {
-        try {
-            lock.lock();
-            System.out.print(" " + (++sheepCount));
-        } finally {
-            lock.unlock();
-        }
+        System.out.print(" " + sheepCount.incrementAndGet());
     }
 
     public static void main(String[] args) {

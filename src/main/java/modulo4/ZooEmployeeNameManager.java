@@ -26,6 +26,11 @@ public class ZooEmployeeNameManager {
         Lock lock = readWriteLock.readLock();
         try {
             lock.lock();
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             System.out.println("Read Lock Obtained!");
             return names.get(i % names.size());
         } finally {
@@ -54,11 +59,11 @@ public class ZooEmployeeNameManager {
         ExecutorService service = null;
         try {
             service = Executors.newFixedThreadPool(20);
+            service.submit(() -> manager.addName("Grace Hopper"));
             for (int i = 0; i < 100; i++) {
                 final int employeeNumber = i;
                 service.submit(() -> manager.readNames(employeeNumber));
             }
-            service.submit(() -> manager.addName("Grace Hopper"));
             service.submit(() -> manager.addName("Josephine Davis"));
         } finally {
             if (service != null) service.shutdown();
