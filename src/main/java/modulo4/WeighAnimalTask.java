@@ -31,6 +31,9 @@ public class WeighAnimalTask extends RecursiveTask<Double> {
             RecursiveTask<Double> otherTask = new WeighAnimalTask(weights, start, middle);
             otherTask.fork();
             return new WeighAnimalTask(weights, middle, end).compute() + otherTask.join();
+
+            //Double otherResult = otherTask.fork().join();??
+            //return new WeighAnimalTask(weights,middle,end).compute() + otherResult;
         }
     }
 
