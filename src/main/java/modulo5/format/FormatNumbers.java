@@ -1,5 +1,6 @@
 package modulo5.format;
 
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -16,5 +17,8 @@ public class FormatNumbers {
 
         NumberFormat ca = NumberFormat.getInstance(Locale.CANADA_FRENCH);
         System.out.println(ca.format(attendeesPerMonth));
+
+        DecimalFormat df = new DecimalFormat("0.00");
+        System.out.println(df.format(677667.59890808));
     }
 }

@@ -21,7 +21,7 @@ public class WeighAnimalAction extends RecursiveAction {
         if (end - start <= 3) {
             for (int i = start; i < end; i++) {
                 weights[i] = (double) new Random().nextInt(100);
-                System.out.println("Animal Weighed: " + i);
+                System.out.println(Thread.currentThread().getName() + " Animal Weighed: " + i);
             }
         } else {
             int middle = start + ((end - start) / 2);
@@ -32,10 +32,10 @@ public class WeighAnimalAction extends RecursiveAction {
     }
 
     public static void main(String[] args) {
-        Double[] weights = new Double[10];
+        Double[] weights = new Double[20];
 
         ForkJoinTask<?> task = new WeighAnimalAction(weights, 0, weights.length);
-        ForkJoinPool pool = new ForkJoinPool();
+        ForkJoinPool pool = new ForkJoinPool(5);
         pool.invoke(task);
 
         // Print results

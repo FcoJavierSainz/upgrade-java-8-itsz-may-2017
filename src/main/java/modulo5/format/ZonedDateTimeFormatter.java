@@ -16,6 +16,6 @@ public class ZonedDateTimeFormatter {
         LocalDateTime ldt = LocalDateTime.of(2016, 6, 11, 10, 10, 0);
         ZonedDateTime zdt = ZonedDateTime.of(ldt, ZoneId.of("America/Mexico_City"));
         System.out.println(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL, FormatStyle.MEDIUM).format(ldt));
-        System.out.println(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL).format(zdt));
+        System.out.println(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL, FormatStyle.FULL).format(zdt));
     }
 }

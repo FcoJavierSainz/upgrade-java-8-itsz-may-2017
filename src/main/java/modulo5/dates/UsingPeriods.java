@@ -2,6 +2,7 @@ package modulo5.dates;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.Period;
 
 /**
  * Created by JavierSainz on 5/26/17.
@@ -10,14 +11,15 @@ public class UsingPeriods {
     public static void main(String[] args) {
         LocalDate start = LocalDate.of(2015, Month.JANUARY, 1);
         LocalDate end = LocalDate.of(2015, Month.MARCH, 30);
-        performAction(start, end);
+        Period period = Period.ofWeeks(1);
+        performAction(start, end, period);
     }
 
-    private static void performAction(LocalDate start, LocalDate end) {
+    private static void performAction(LocalDate start, LocalDate end, Period period) {
         LocalDate upTo = start;
         while (upTo.isBefore(end)) {          // check if still before end
             System.out.println("New iteration: " + upTo);
-            upTo = upTo.plusMonths(1);           // add a month
+            upTo = upTo.plus(period);           // add a period
         }
     }
 }

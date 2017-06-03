@@ -12,7 +12,7 @@ public class ParseNumber {
         NumberFormat en = NumberFormat.getInstance(Locale.US);
         NumberFormat fr = NumberFormat.getInstance(Locale.FRANCE);
 
-        String s = "40.45";
+        String s = "40,45";
         System.out.println(en.parse(s));
         System.out.println(fr.parse(s));
     }

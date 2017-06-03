@@ -23,6 +23,11 @@ public class ManipulatingDates {
         date = date.plusYears(5);
         System.out.println(date);
 
+        date = LocalDate.of(2014, Month.MARCH, 31);
+        date = date.minusMonths(1);
+        System.out.println(date);
+
+
         // subtracting
         LocalDate date2 = LocalDate.of(2020, Month.JANUARY, 20);
         LocalTime time = LocalTime.of(5, 15);
@@ -40,6 +45,17 @@ public class ManipulatingDates {
 
         //date2 = date2.plusMinutes(1);
         System.out.println(date2);
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }

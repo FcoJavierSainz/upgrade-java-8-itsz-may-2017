@@ -14,8 +14,11 @@ public class TestingDuration {
         LocalTime time = LocalTime.of(6, 15);
         LocalDateTime dateTime = LocalDateTime.of(date, time);
         Duration duration = Duration.ofHours(23);
-        System.out.println(dateTime.plus(duration)); // 2015–01–21T15
-        System.out.println(time.plus(duration));     // 15
-        System.out.println(date.plus(duration));     // UnsupportedTemporalException
+        System.out.println(dateTime.plus(duration)); // 2015–01–21T05:15
+        System.out.println(time.plus(duration));     // 05:15
+        //System.out.println(date.plus(duration));     // UnsupportedTemporalException
+        System.out.println(Duration.ofDays(5));
+        System.out.println(Duration.parse("PT5s"));
+
     }
 }

@@ -15,9 +15,9 @@ public class ParseNumberTest {
         try {
             System.out.println(nf.parse(one));
             System.out.println(nf.parse(two));
+            System.out.println(nf.parse(three));
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        //System.out.println(nf.parse(three));
     }
 }

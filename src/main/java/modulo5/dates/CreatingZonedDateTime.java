@@ -8,7 +8,11 @@ import java.time.*;
 public class CreatingZonedDateTime {
     public static void main(String[] args) {
         LocalDate date = LocalDate.now();
+        long nano1 = System.nanoTime();
         LocalTime time = LocalTime.now();
+        long nano2 = System.nanoTime();
+        System.out.println(nano1);
+        System.out.println(nano2);
         LocalDateTime dateTime = LocalDateTime.now();
         ZoneId zone = ZoneId.of("US/Eastern");
         ZonedDateTime zoned1 = ZonedDateTime.of(2015, 1, 20,

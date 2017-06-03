@@ -7,7 +7,7 @@ import java.util.Locale;
  */
 public class LocaleFromString {
     public static void main(String[] args) {
-        System.out.println(new Locale("fr")); // fr
-        System.out.println(new Locale("hi", "IN")); // hi_IN
+        System.out.println(new Locale("FR")); // fr
+        System.out.println(new Locale("HI", "IN")); // hi_IN
     }
 }

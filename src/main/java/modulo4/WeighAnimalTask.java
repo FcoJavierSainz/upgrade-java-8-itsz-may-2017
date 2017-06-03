@@ -21,7 +21,7 @@ public class WeighAnimalTask extends RecursiveTask<Double> {
             double sum = 0;
             for (int i = start; i < end; i++) {
                 weights[i] = (double) new Random().nextInt(100);
-                System.out.println("Animal Weighed: " + i);
+                System.out.println(Thread.currentThread().getName() + " Animal Weighed: " + i);
                 sum += weights[i];
             }
             return sum;
@@ -29,16 +29,16 @@ public class WeighAnimalTask extends RecursiveTask<Double> {
             int middle = start + ((end - start) / 2);
             System.out.println("[start=" + start + ",middle=" + middle + ",end=" + end + "]");
             RecursiveTask<Double> otherTask = new WeighAnimalTask(weights, start, middle);
-            otherTask.fork();
-            return new WeighAnimalTask(weights, middle, end).compute() + otherTask.join();
-
-            //Double otherResult = otherTask.fork().join();??
-            //return new WeighAnimalTask(weights,middle,end).compute() + otherResult;
+            //otherTask.fork();
+            //return new WeighAnimalTask(weights, middle, end).compute() + otherTask.join();
+            System.out.println(Thread.currentThread().getName());
+            Double otherResult = otherTask.fork().join();
+            return new WeighAnimalTask(weights,middle,end).compute() + otherResult;
         }
     }
 
     public static void main(String[] args) {
-        Double[] weights = new Double[10];
+        Double[] weights = new Double[50];
         ForkJoinTask<Double> task = new WeighAnimalTask(weights, 0, weights.length);
         ForkJoinPool pool = new ForkJoinPool();
         Double sum = pool.invoke(task);

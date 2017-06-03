@@ -31,10 +31,10 @@ public class DaylightSaveTime {
         dateTime = dateTime.plusHours(1);
 
         System.out.println(dateTime);
-
+        pointingInexistingHour();
     }
 
-    public static void pointingInnexistingHour() {
+    public static void pointingInexistingHour() {
 
         LocalDate date = LocalDate.of(2016, Month.MARCH, 13);
         LocalTime time = LocalTime.of(2, 30);
