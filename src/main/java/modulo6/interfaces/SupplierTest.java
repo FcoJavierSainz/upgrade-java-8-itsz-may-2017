@@ -1,5 +1,6 @@
 package modulo6.interfaces;
 
+import java.time.Instant;
 import java.util.function.Supplier;
 
 /**
@@ -19,5 +20,15 @@ public class SupplierTest {
 
         supplierStr = () -> t.toUpperCase();
         System.out.println(supplierStr.get());
+
+        Supplier<Instant> now = () -> Instant.now();
+
+        System.out.println(now.get());
+        System.out.println(now.get());
+        System.out.println(now.get());
+        System.out.println(now.get());
+        System.out.println(now.get());
+        System.out.println(now.get());
+        System.out.println(now.get());
     }
 }

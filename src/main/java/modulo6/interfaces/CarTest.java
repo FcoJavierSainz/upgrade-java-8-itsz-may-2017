@@ -1,40 +1,35 @@
-package modulo6.functional;
+package modulo6.interfaces;
+
+import modulo6.functional.Car;
+import modulo6.functional.CarType;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
 
 /**
  * Created by JavierSainz on 6/2/17.
  */
+
 public class CarTest {
     public static void main(String[] args) {
         List<Car> cars = getCars();
-        cars = findCompactCars(cars);
-        cars = findEconomicCars(cars);
+        cars = findCars(cars, car -> car.getType().equals(CarType.COMPACT));
+        cars = findCars(cars, car -> car.getCostUSD() > 20000);
         System.out.println(cars);
         System.out.println(cars.size());
 
     }
 
-    static List<Car> findCompactCars(List<Car> cars) {
+    static List<Car> findCars(List<Car> cars, Predicate<Car> p) {
         List<Car> compactCars = new ArrayList<>();
         for (Car car : cars) {
-            if (car.getType().equals(CarType.COMPACT)) {
+            if (p.test(car)) {
                 compactCars.add(car);
             }
         }
         return compactCars;
-    }
-
-    static List<Car> findEconomicCars(List<Car> cars) {
-        List<Car> twentyKCars = new ArrayList<>();
-        for (Car car : cars) {
-            if (car.getCostUSD() > 20000) {
-                twentyKCars.add(car);
-            }
-        }
-        return twentyKCars;
     }
 
     static List<Car> getCars() {
@@ -66,3 +61,4 @@ public class CarTest {
         private Optional<String> summary;
     }
 }
+

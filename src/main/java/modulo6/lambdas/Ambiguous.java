@@ -6,6 +6,7 @@ package modulo6.lambdas;
 interface Executable {
     void execute();
 }
+
 public class Ambiguous {
     static void methodA(Runnable r) {
 
@@ -16,6 +17,6 @@ public class Ambiguous {
     }
 
     public static void main(String[] args) {
-        //methodA(() -> System.out.println());
+        methodA((Executable) () -> System.out.println());
     }
 }
